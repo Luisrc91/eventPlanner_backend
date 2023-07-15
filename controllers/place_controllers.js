@@ -6,7 +6,7 @@ place.post("/", async (req, res) => {
     const {
       place_name,
       place_address,
-      picture,
+      picture_place,
       comment,
       ratings
     } = req.body;
@@ -15,7 +15,7 @@ place.post("/", async (req, res) => {
       const event = await Place_data.create({
         place_name,
         place_address,
-        picture,
+        picture_place,
         comment,
         ratings
       });

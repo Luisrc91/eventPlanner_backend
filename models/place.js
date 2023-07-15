@@ -18,11 +18,7 @@ module.exports = (sequelize) =>{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-      },
-      // user_id: {
-      //   type: DataTypes.INTEGER,
-      //   allowNull: false,
-      // },
+      },     
       place_name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -47,6 +43,8 @@ module.exports = (sequelize) =>{
     {
       sequelize,
       modelName: "Place_data",
+      timestamps: false,
+
     }
   );
   return Place_data;

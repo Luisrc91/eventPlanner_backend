@@ -2,17 +2,14 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Places_data", {
+    await queryInterface.createTable("Place_data", {
       place_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },   
-      // user_id: {
-      //   type: Sequelize.INTEGER,
-      //   allowNull: false,
-      // },
+    
       place_name: {
         type: Sequelize.STRING,
         allowNull: false,

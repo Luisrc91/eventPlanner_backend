@@ -19,26 +19,25 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
+      band_name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       genre: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       event_place: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      }
+     
     },
     {
       sequelize,
-      modelName: "Band",
+      modelName: "Band_data",
+      timestamps: false,
+
     }
   );
   return Band_data;

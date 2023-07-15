@@ -6,7 +6,7 @@ require('dotenv').config();
 const cors = require('cors')
 const usersController = require('./controllers/user_controllers');
 const eventController = require('./controllers/event_controllers');
-// const bandController = require('./controllers/band_controllers');
+const bandController = require('./controllers/band_controllers');
 const placeController = require('./controllers/place_controllers');
 
 // CONFIGURATION / MIDDLEWARE
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 //CONTROLLERS  
 app.use('/users', usersController);
 app.use('/events', eventController);
-// app.use('/bands', bandController);
+app.use('/bands', bandController);
 app.use('/places', placeController);
 
 // LISTEN
