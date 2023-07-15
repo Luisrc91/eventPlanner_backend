@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
       // define association here
     }
   }
-  events.init(
+  Events.init(
     {
       event_id: {
         type: DataTypes.INTEGER,

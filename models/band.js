@@ -14,11 +14,27 @@ module.exports = (sequelize) => {
   }
   Band.init(
     {
-      band_id: DataTypes.INTEGER,
-      band_name: DataTypes.STRING,
-      genre: DataTypes.STRING,
-      event_place: DataTypes.STRING,
-      user_id: DataTypes.INTEGER,
+      band_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      genre: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      event_place: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      }
     },
     {
       sequelize,
