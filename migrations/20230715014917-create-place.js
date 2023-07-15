@@ -2,17 +2,17 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Places", {
+    await queryInterface.createTable("Places_data", {
       place_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },   
-      user_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
+      // user_id: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      // },
       place_name: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -21,9 +21,9 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      picture: {
+      picture_place: {
         type: Sequelize.BLOB,
-        allowNull: false,
+        allowNull: true,
       },
       comment: {
         type: Sequelize.STRING,
@@ -31,11 +31,11 @@ module.exports = {
       },
       ratings: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Places");
+    await queryInterface.dropTable("Places_data");
   },
 };

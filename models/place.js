@@ -2,7 +2,7 @@
 const { Model, DataTypes } = require("sequelize");
 
 module.exports = (sequelize) =>{
-  class Place extends Model {
+  class Place_data extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -12,17 +12,17 @@ module.exports = (sequelize) =>{
       // define association here
     }
   }
-  Place.init(
+  Place_data.init(
     {
       place_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+      // user_id: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      // },
       place_name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -33,7 +33,7 @@ module.exports = (sequelize) =>{
       },
       picture_place: {
         type: DataTypes.BLOB,
-        allowNull: false,
+        allowNull: true,
       },
       comment: {
         type: DataTypes.STRING,
@@ -41,13 +41,13 @@ module.exports = (sequelize) =>{
       },
       ratings: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
     },
     {
       sequelize,
-      modelName: "Place",
+      modelName: "Place_data",
     }
   );
-  return Place;
+  return Place_data;
 };

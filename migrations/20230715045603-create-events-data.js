@@ -1,14 +1,15 @@
-"use strict";
+'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("events", {
+    await queryInterface.createTable('Events_data', {
       event_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
+      
       event_name: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -19,7 +20,7 @@ module.exports = {
       },
       guest: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       place_name: {
         type: Sequelize.STRING,
@@ -30,11 +31,11 @@ module.exports = {
         allowNull: false,
       },
       start_time: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DATE,
         allowNull: false,
       },
       end_time: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DATE,
         allowNull: false,
       },
       description: {
@@ -43,11 +44,15 @@ module.exports = {
       },
       picture: {
         type: Sequelize.BLOB,
-        allowNull: false,
+        allowNull: true,
       },
+      band_name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("events");
-  },
+    await queryInterface.dropTable('Events_data');
+  }
 };

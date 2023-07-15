@@ -1,8 +1,10 @@
 "use strict";
 const { Model, DataTypes } = require("sequelize");
+// const sequelize = require('../config/database');
 
-module.exports = (sequelize) => {
-  class Events extends Model {
+
+module.exports = (sequelize) =>{
+  class Events_data extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -12,7 +14,7 @@ module.exports = (sequelize) => {
       // define association here
     }
   }
-  Events.init(
+  Events_data.init(
     {
       event_id: {
         type: DataTypes.INTEGER,
@@ -27,9 +29,9 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      guests: {
+      guest: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       place_name: {
         type: DataTypes.STRING,
@@ -39,31 +41,32 @@ module.exports = (sequelize) => {
         type: DataTypes.DATE,
         allowNull: false,
       },
-      event_start_time: {
-        type: DataTypes.INTEGER,
+      start_time: {
+        type: DataTypes.DATE,
         allowNull: false,
       },
-      event_end_time: {
-        type: DataTypes.INTEGER,
+      end_time: {
+        type: DataTypes.DATE,
         allowNull: false,
       },
       description: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      band_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       picture: {
         type: DataTypes.BLOB,
+        allowNull: true,
+      },
+      band_name: {
+        type: DataTypes.STRING,
         allowNull: false,
       },
     },
     {
       sequelize,
-      modelName: "events",
+      modelName: "Events_data",
+      timestamps: false,
     }
   );
-  return Events;
+  return Events_data;
 };
