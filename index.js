@@ -5,6 +5,8 @@ const app = express();
 require('dotenv').config();
 const usersController = require('./controllers/user_controllers');
 
+
+
 // CONFIGURATION / MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
