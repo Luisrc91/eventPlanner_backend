@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
     });
   });
   
+//CONTROLLERS  
 app.use('/users', usersController)
 
 // LISTEN
