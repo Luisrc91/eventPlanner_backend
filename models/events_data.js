@@ -10,8 +10,20 @@ module.exports = (sequelize) =>{
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate({User_data, Place_data, Band_data}) {
       // define association here
+      Events_data.belongsTo(User_data,{
+        foreignKey: 'user_id',
+        as: 'author'
+      }),
+      Events_data.hasOne(Place_data,{
+        foreignKey: 'event_id',
+        as: 'place'
+      }),
+      Events_data.hasMany(Band_data,{
+        foreignKey: 'event_id',
+        as: 'band'
+      })
     }
   }
   Events_data.init(
@@ -42,11 +54,11 @@ module.exports = (sequelize) =>{
         allowNull: false,
       },
       start_time: {
-        type: DataTypes.DATE,
+        type: DataTypes.TIME,
         allowNull: false,
       },
       end_time: {
-        type: DataTypes.DATE,
+        type: DataTypes.TIME,
         allowNull: false,
       },
       description: {

@@ -8,8 +8,16 @@ module.exports = (sequelize) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate({User_data, Events_data}) {
       // define association here
+      Band_data.belongsTo(User_data,{
+        foreignKey:"user_id",
+        as: "user"
+      }),
+      Band_data.belongsTo(Events_data,{
+        foreignKey:"event_id",
+        as: "event"
+      })
     }
   }
   Band_data.init(
@@ -18,6 +26,8 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
+        allowNull: false,
+
       },
       band_name: {
         type: DataTypes.STRING,
