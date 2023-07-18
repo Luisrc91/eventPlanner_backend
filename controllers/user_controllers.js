@@ -1,16 +1,18 @@
 const express = require('express');
 const user = express.Router();
 const { User_data } = require('../models'); 
+const bcrypt = require('bcrypt');
 
 // POST / user
 user.post('/', async (req, res) => {
   const { user_name, email, password } = req.body;
+  // let (password) = 
 
   try {
     const user = await User_data.create({
       user_name,
       email,
-      password
+      password_digest: await bcrypt.hash(password,10)
     });
 
     res.status(201).json(user);
