@@ -32,7 +32,7 @@ app.use('/places', placeController);
 app.use('/authentication', authController);
 
 // LISTEN
-app.listen(process.env.PORT, () => {
+app.listen(process.env.POSTGRES_URL, () => {
     console.log(`event port: ${process.env.PORT}`);
   });
 
