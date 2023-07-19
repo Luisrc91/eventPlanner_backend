@@ -7,7 +7,7 @@ const usersController = require('./controllers/user_controllers');
 const eventController = require('./controllers/event_controllers');
 const bandController = require('./controllers/band_controllers');
 const placeController = require('./controllers/place_controllers');
-// const authController = require('./controllers/authentication);
+const authController = require('./controllers/authentication')
 
 // CONFIGURATION / MIDDLEWARE
 require('dotenv').config();
@@ -29,7 +29,7 @@ app.use('/users', usersController);
 app.use('/events', eventController);
 app.use('/bands', bandController);
 app.use('/places', placeController);
-// app.use('/authentication', authController);
+app.use('/authentication', authController);
 
 // LISTEN
 app.listen(process.env.PORT, () => {
