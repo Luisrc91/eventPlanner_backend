@@ -13,6 +13,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      event_id:{
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
     
       place_name: {
         type: Sequelize.STRING,

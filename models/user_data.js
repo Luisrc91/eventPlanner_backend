@@ -9,11 +9,11 @@ module.exports = (sequelize) => {
         as: "event",
       }),
         User_data.hasMany(Place_data, {
-          foreignKey: "user_id",
-          as: "place",
+          foreignKey: "place_id",
+          as: "places",
         }),
         User_data.hasMany(Band_data, {
-          foreignKey: "user_id",
+          foreignKey: "band_id",
           as: "bands",
         });
     }

@@ -6,6 +6,7 @@ const { Events_data } = require("../models");
 
 event.post("/", async (req, res) => {
   const {
+    user_id,
     event_name,
     event_type,
     guest,
@@ -20,6 +21,7 @@ event.post("/", async (req, res) => {
   // console.log(guest)
   try {
     const event = await Events_data.create({
+      user_id,
       event_name,
       event_type,
       guest,

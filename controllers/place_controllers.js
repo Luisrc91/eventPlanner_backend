@@ -3,11 +3,20 @@ const place = express.Router();
 const { Place_data } = require("../models");
 
 place.post("/", async (req, res) => {
-  const { place_name, place_address, picture_place, comment, ratings } =
-    req.body;
+  const {
+    user_id,
+    event_id,
+    place_name,
+    place_address,
+    picture_place,
+    comment,
+    ratings,
+  } = req.body;
 
   try {
     const event = await Place_data.create({
+      user_id,
+      event_id,
       place_name,
       place_address,
       picture_place,

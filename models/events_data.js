@@ -16,13 +16,13 @@ module.exports = (sequelize) =>{
         foreignKey: 'user_id',
         as: 'author'
       }),
-      Events_data.hasOne(Place_data,{
-        foreignKey: 'event_id',
-        as: 'place'
+      Events_data.hasMany(Place_data,{
+        foreignKey: 'event_name',
+        as: 'places'
       }),
       Events_data.hasMany(Band_data,{
-        foreignKey: 'event_id',
-        as: 'band'
+        foreignKey: 'band_id',
+        as: 'bands'
       })
     }
   }
@@ -33,10 +33,11 @@ module.exports = (sequelize) =>{
         primaryKey: true,
         autoIncrement: true,
       },
-      user_id:{
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
+      user_id: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+
       event_name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -50,7 +51,7 @@ module.exports = (sequelize) =>{
         allowNull: true,
       },
       place_name: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       date_of_event: {
@@ -74,7 +75,7 @@ module.exports = (sequelize) =>{
         allowNull: true,
       },
       band_name: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
     },

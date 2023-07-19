@@ -13,6 +13,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      event_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       band_name: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -21,10 +25,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      event_place: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
+   
    
     });
   },

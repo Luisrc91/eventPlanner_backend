@@ -3,13 +3,15 @@ const band = express.Router();
 const { Band_data } = require("../models");
 
 band.post("/", async (req, res) => {
-  const { band_name, genre, event_place } = req.body;
+  const { user_id, band_name, genre, event_id } = req.body;
 
   try {
     const event = await Band_data.create({
+      user_id,
+      event_id,
       band_name,
       genre,
-      event_place,
+      event_id,
     });
     res.status(201).json(event);
   } catch (error) {

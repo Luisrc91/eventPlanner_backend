@@ -27,32 +27,28 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
-
       },
       user_id:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      event_id:{
         type: DataTypes.INTEGER,
         allowNull: false
       },
       band_name: {
         type: DataTypes.STRING,
         allowNull: false,
-
       },
       genre: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      event_place: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-     
+      },    
     },
     {
       sequelize,
       modelName: "Band_data",
       timestamps: false,
-
     }
   );
   return Band_data;
