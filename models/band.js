@@ -29,9 +29,14 @@ module.exports = (sequelize) => {
         allowNull: false,
 
       },
+      user_id:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
       band_name: {
         type: DataTypes.STRING,
         allowNull: false,
+
       },
       genre: {
         type: DataTypes.STRING,
