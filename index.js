@@ -35,3 +35,5 @@ app.use('/authentication', authController);
 app.listen(process.env.PORT, () => {
     console.log(`event port: ${process.env.PORT}`);
   });
+
+  module.exports = app;
