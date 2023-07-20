@@ -5,8 +5,8 @@ module.exports = (sequelize) => {
   class User_data extends Model {
     static associate({ Events_data, Place_data, Band_data }) {
       User_data.hasMany(Events_data, {
-        foreignKey: "user_id",
-        as: "event",
+        foreignKey: "author_id ",
+        as: "author",
       })
         // User_data.hasMany(Place_data, {
         //   foreignKey: "place_id",

@@ -1,20 +1,26 @@
 const express = require("express");
 const event = express.Router();
 const { Events_data } = require("../models");
+const authentication = require("./authentication");
 
 // POST /events
 
 event.post("/", async (req, res) => {
-
-  // console.log(guest)
+  if(req.currentUser?.role !== 'admin'){
+    return res.status(403).json({ message: 'You are not allowed to add a place'})
+}
   try {
     const event = await Events_data.create(req.body,{});
     // console.log(event)
     res.status(201).json(event);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: "Internal Error" });
   }
 });
+
+
+
 
 event.get('/', async (req, res) => {
   try {

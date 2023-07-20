@@ -5,13 +5,13 @@ const bcrypt = require("bcryptjs");
 
 // POST / user
 user.post("/", async (req, res) => {
-  let { user_name, email, password } = req.body;
+  let {password, ...rest } = req.body;
   // let (password) =
 
   try {
     const user = await User_data.create({
-      user_name,
-      email,
+      ...rest,
+      role:"reviewer",
       password_digest: await bcrypt.hash(password, 10),
     });
 
