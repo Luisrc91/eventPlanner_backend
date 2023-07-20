@@ -15,15 +15,15 @@ module.exports = (sequelize) =>{
       Events_data.belongsTo(User_data,{
         foreignKey: 'user_id',
         as: 'author'
-      }),
-      Events_data.hasMany(Place_data,{
-        foreignKey: 'event_name',
-        as: 'places'
-      }),
-      Events_data.hasMany(Band_data,{
-        foreignKey: 'band_id',
-        as: 'bands'
       })
+      // Events_data.hasMany(Place_data,{
+      //   foreignKey: 'event_name',
+      //   as: 'places'
+      // }),
+      // Events_data.hasMany(Band_data,{
+      //   foreignKey: 'band_id',
+      //   as: 'bands'
+      // })
     }
   }
   Events_data.init(

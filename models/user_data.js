@@ -7,15 +7,15 @@ module.exports = (sequelize) => {
       User_data.hasMany(Events_data, {
         foreignKey: "user_id",
         as: "event",
-      }),
-        User_data.hasMany(Place_data, {
-          foreignKey: "place_id",
-          as: "places",
-        }),
-        User_data.hasMany(Band_data, {
-          foreignKey: "band_id",
-          as: "bands",
-        });
+      })
+        // User_data.hasMany(Place_data, {
+        //   foreignKey: "place_id",
+        //   as: "places",
+        // }),
+        // User_data.hasMany(Band_data, {
+        //   foreignKey: "band_id",
+        //   as: "bands",
+        // });
     }
   }
 
@@ -29,6 +29,7 @@ module.exports = (sequelize) => {
       user_name: {
         type: DataTypes.TEXT,
         allowNull: false,
+        unique: true,
       },
       email: {
         type: DataTypes.TEXT,

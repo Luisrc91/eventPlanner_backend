@@ -16,30 +16,14 @@ router.post("/", async (req, res) => {
       message: `Could not find a user with the provided username and password`,
     });
   } else {
-    const token = jwt.sign({ id: user.user_id }, process.env.JWT_SECRET);
+    const token = await jwt.sign({ id: user.user_id }, process.env.JWT_SECRET);
     res.json({ user: user, token: token });
     console.log(token);
   }
 });
 
-router.get("/profile", async (req, res) => {
-  try {
-    const [authenticationMethod, token] = req.headers.authorization.split(" ");
-
-    if (authenticationMethod == "Bearer") {
-      const result = await jwt.verify(token, process.env.JWT_SECRET);
-      const { id } = result;
-
-      let user = await User.findOne({
-        where: {
-          userId: id,
-        },
-      });
-      res.json(user);
-    }
-  } catch {
-    res.json(null);
-  }
-});
+router.get('/profile', async (req, res) => {
+    res.json(req.currentUser)
+  })
 
 module.exports = router;
