@@ -4,7 +4,7 @@ const { User_data } = require("../models");
 const bcrypt = require("bcryptjs");
 
 // POST / user
-// POST /user
+
 user.post('/', async (req, res) => {
   let { password, ...rest } = req.body;
   try {
