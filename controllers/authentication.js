@@ -16,8 +16,8 @@ router.post("/", async (req, res) => {
       message: `Could not find a user with the provided username and password`,
     });
   } else {
-    const token = await jwt.sign({ id: user.user_id }, process.env.JWT_SECRET);
-    res.json({ user: user, token: token });
+    const token = jwt.sign({ id: user.user_id }, process.env.JWT_SECRET,{expiresIn: '1h'} );
+    res.json({ token });
     console.log(token);
   }
 });

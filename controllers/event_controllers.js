@@ -6,21 +6,22 @@ const authentication = require("./authentication");
 // POST /events
 
 event.post("/", async (req, res) => {
-  if(req.currentUser?.role !== 'admin'){
-    return res.status(403).json({ message: 'You are not allowed to add a place'})
-}
+  const userId = req.currentUser?.user_id || 0; 
+
+  const eventPayload = {
+    ...req.body,
+    user_id: userId, 
+  };
+
   try {
-    const event = await Events_data.create(req.body,{});
-    // console.log(event)
+    const event = await Events_data.create(eventPayload);
+    console.log(event);
     res.status(201).json(event);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).json({ error: "Internal Error" });
   }
 });
-
-
-
 
 event.get('/', async (req, res) => {
   try {

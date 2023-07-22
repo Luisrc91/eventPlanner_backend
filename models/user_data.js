@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   class User_data extends Model {
     static associate({ Events_data, Place_data, Band_data }) {
       User_data.hasMany(Events_data, {
-        foreignKey: "author_id ",
+        foreignKey: "user_id",
         as: "author",
       })
         // User_data.hasMany(Place_data, {
@@ -35,6 +35,13 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
+        role: {
+      type: DataTypes.ENUM,
+      values: [
+        'reviewer',
+        'admin',
+      ],
+    },
       password_digest: {
         type: DataTypes.STRING,
         allowNull: false,
