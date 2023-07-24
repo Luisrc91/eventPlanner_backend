@@ -4,7 +4,7 @@
 
 ## Description
 
-### This backend of event planner where you can Post, Read, Update and Delete using CRUD methods, create a User and event by user id.
+- This backend of event planner where you can Post, Read, Update and Delete using CRUD methods, create a User and event by user id.
 
 
 ## Technologies
@@ -32,6 +32,6 @@
     - Then run node index.js
 - Create a new .env file to add port and Database settings and jwt secret token
 ### FrontEnd <code>
-    https://github.com/Luisrc91/eventPlanner_frontend/tree/main 
+   -https://github.com/Luisrc91/eventPlanner_frontend/tree/main 
 ## Author
 - Luis Ramirez
