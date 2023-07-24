@@ -31,5 +31,7 @@
     },
     - Then run node index.js
 - Create a new .env file to add port and Database settings and jwt secret token
+### FrontEnd <code>
+    https://github.com/Luisrc91/eventPlanner_frontend/tree/main 
 ## Author
 - Luis Ramirez
