@@ -27,10 +27,10 @@ app.use("/users", usersController);
 app.use("/events", eventController);
 
 app.use("/authentication", authController);
-// serve static front end in production mode
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, 'public', 'build')));
-}
+// // serve static front end in production mode
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, 'public', 'build')));
+// }
 
 // LISTEN
 app.listen(process.env.PORT, () => {
