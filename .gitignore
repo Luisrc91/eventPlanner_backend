@@ -1,3 +1,5 @@
 node_modules/
 .env
 dotenv
+.vercel
+.env*.local
